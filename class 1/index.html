@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vue Js</title>
+	<!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+	<script src="D:\Vue Practise\class 1\node_modules\vue\dist\vue.js"></script>
+</head>
+<body>
+<h1>Vue Js class 1</h1>
+
+<div id="app"> {{ myname }} 
+<p>Email: {{ myemail }}</p>
+</div>
+<div id="app2"></div>
+<div id="app3"></div>
+
+<script type="text/javascript">
+	var myapp = new Vue({
+		el : '#app',
+		data : {
+			'myname' : 'Joyanta Dutta',
+			'myemail' : 'joyanta955@gmail.com'
+		}
+	});
+</script>
+</body>
+</html>
