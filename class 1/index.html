@@ -10,6 +10,46 @@
 
 <div id="app"> {{ myname }} 
 <p>Email: {{ myemail }}</p>
+<h3>Friend List</h3>
+<div v-if = "showdiv">
+<ul>
+	<li v-for = "friend in friends">
+		{{ friend.name+''+friend.email }}
+	</li>
+</ul>
+</div>
+
+<div v-else>
+<p>Div not showed</p> 
+</div>
+
+<div v-if="ladder_val == 1">
+	1
+</div>
+
+<div v-if="ladder_val == 2">
+	2
+</div>
+
+<div v-if="ladder_val == 3">
+	3
+</div>
+<div>
+	<h4>
+		Working with http tag
+	</h4>
+	<p v-html = "html"></p>
+	<p v-html = "html5"></p>
+	<a v-bind:href="link">  to facebook </a> <br>
+	<a v-bind:href="link1" target="_blank"> Go to gmail </a><br>
+	<button v-on:click = "showMsg(myname, myemail)">Print alert</button>
+	<button v-on:click = "showMsg1">Print alert another</button>
+	<br><br>
+	<button @mouseover = "showMsg(myname, myemail)">Print alert(by mouseover)</button>
+	<button @click = "showMsg1">Print alert another</button>
+	<br><br>
+	<button @click = "showMsg2">Print alert another</button>
+</div>
 </div>
 <div id="app2"></div>
 <div id="app3"></div>
@@ -19,8 +59,33 @@
 		el : '#app',
 		data : {
 			'myname' : 'Joyanta Dutta',
-			'myemail' : 'joyanta955@gmail.com'
+			'myemail' : 'joyanta955@gmail.com',
+			'friends' : [
+				{name : 'A', 'email' : 'a.com'},
+				{name : 'B', 'email' : 'b.com'},
+				{name : 'C', 'email' : 'c.com'}
+			],
+			showdiv : true,
+			ladder_val : 1,
+			html : '<a href = "https://www.google.com">Click Here</a>',
+			html5 : '<div><p> Hello </p><span> Hi </span></div>',
+			link :'https://www.facebook.com',
+			link1 :'https://www.gmail.com'
+		},
+		methods : {
+			showMsg : function(name, email){
+				window.alert(name+' '+email);
+			},
+			showMsg1 : function(){
+				window.alert("Hello");
+				console.log("Hey");
+				console.log(this.ladder_val);
+			},
+			showMsg2 : function(){
+				console.log("Hey");
+			},
 		}
+		
 	});
 </script>
 </body>
